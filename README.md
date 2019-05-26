@@ -1,4 +1,4 @@
 # React
 React+Redux course
 
-Simple SPA with `React.CreateComponent()`
+Simple SPA with `React.CreateElement()`

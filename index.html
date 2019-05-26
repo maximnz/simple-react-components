@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
     <title>React Create Component</title>
 </head>
 <body>
@@ -11,11 +12,11 @@
     <script src="../../../../node_modules/react/umd/react.development.js"></script>
     <script src="../../../../node_modules/react-dom/umd/react-dom.development.js"></script>
     <script>
-        // const secondComponent = (props) => {
-        //     return React.createElement('div', null,
-        //         React.createElement('h2', { style: { 'font-size': props.fontSize } }, 'Second component')
-        //     );
-        // };
+        const secondComponent = (props) => {
+            return React.createElement('div', null,
+                React.createElement('h2', { style: { 'font-size': props.fontSize } }, 'Second component')
+            );
+        };
 
         // const firstComponent = () => {
         //     return React.createElement('div', null,
@@ -30,6 +31,23 @@
         //     React.createElement(firstComponent),
         //     document.getElementById('app'),
         // );
+
+        const feedbackForm = () => {
+            return React.createElement('div', { className: 'feedback-form' }, 'Welcome!');
+        };
+
+        const wrapper = () => {
+            return React.createElement('div', { className: 'flex-wrapper' }, 
+                React.createElement(feedbackForm))
+        };
+
+        ReactDOM.render(
+            React.createElement(wrapper),
+            document.getElementById('app'),
+        );
+
+
+        
     </script>
 </body>
 </html>
