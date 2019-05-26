@@ -12,34 +12,39 @@
     <script src="../../../../node_modules/react/umd/react.development.js"></script>
     <script src="../../../../node_modules/react-dom/umd/react-dom.development.js"></script>
     <script>
-        const secondComponent = (props) => {
-            return React.createElement('div', null,
-                React.createElement('h2', { style: { 'font-size': props.fontSize } }, 'Second component')
-            );
-        };
-
-        // const firstComponent = () => {
-        //     return React.createElement('div', null,
-        //         React.createElement('h1', null, 'My first component!!!'),
-        //         React.createElement(secondComponent, { fontSize: 18 }),
-        //         React.createElement(secondComponent, { fontSize: 16 }),
-        //         React.createElement(secondComponent, { fontSize: 14 }),
-        //     );
-        // };
-
-        // ReactDOM.render(
-        //     React.createElement(firstComponent),
-        //     document.getElementById('app'),
-        // );
 
         const feedbackForm = () => {
-            return React.createElement('div', { className: 'feedback-form' }, 'Welcome!');
+            return React.createElement('div', { className: 'feedback-form' },
+                React.createElement(formFieldLabel, { 'labelText': 'Your Name' }),
+                React.createElement(formField, { 'type': 'text' }),
+                React.createElement(formFieldLabel, { 'labelText': 'Your E-mail' }),
+                React.createElement(formField, { 'type': 'email' }),
+                React.createElement(formFieldLabel, { 'labelText': 'Message to send' }),
+                React.createElement(formTextArea, { 'rows': 5, 'placeholder': 'Text...' }),
+                React.createElement(formButton, { 'buttonText': 'Send' }),
+            );
         };
 
         const wrapper = () => {
             return React.createElement('div', { className: 'flex-wrapper' }, 
                 React.createElement(feedbackForm))
         };
+
+        const formField = (props) => {
+            return React.createElement('input', { type: props.type });
+        };
+
+        const formTextArea = (props) => {
+            return React.createElement('textarea', { rows: props.rows, placeholder: props.placeholder });
+        };
+
+        const formFieldLabel = (props) => {
+            return React.createElement('label', { className: 'form-label' }, props.labelText);
+        };
+
+        const formButton = (props) => {
+            return React.createElement('button', { className: 'submit-button' }, props.buttonText);
+        }
 
         ReactDOM.render(
             React.createElement(wrapper),
